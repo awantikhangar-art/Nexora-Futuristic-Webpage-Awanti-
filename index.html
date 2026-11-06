@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CYBORG – The Future of Humanity</title>
+<meta name="description" content="Beyond biological limitations. Discover the next evolution of humanity through cybernetic technology and AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 32 32"><path d="M16 2 4 9v14l12 7 12-7V9z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 2v12m0 0L4 9m12 5 12-5M16 14v16" stroke="currentColor" stroke-width="1.2" opacity=".6" fill="none"/><circle cx="16" cy="14" r="3" fill="currentColor"/></symbol>
+    <symbol id="i-neural" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="6"/><circle cx="8" cy="10" r="3"/><circle cx="40" cy="10" r="3"/><circle cx="8" cy="38" r="3"/><circle cx="40" cy="38" r="3"/><path d="m10 12 9 8m19-8-9 8M10 36l9-8m19 8-9-8"/></g></symbol>
+    <symbol id="i-bionic" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 40V24l8-10h8l8 10v16z"/><path d="M20 14V6m8 8V6M12 30h24"/><circle cx="24" cy="35" r="2"/></g></symbol>
+    <symbol id="i-ai" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="12" y="12" width="24" height="24"/><rect x="19" y="19" width="10" height="10"/><path d="M18 12V6m6 6V6m6 6V6M18 42v-6m6 6v-6m6 6v-6M12 18H6m6 6H6m6 6H6m36-12h-6m6 6h-6m6 6h-6"/></g></symbol>
+    <symbol id="i-vision" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M3 24S12 10 24 10s21 14 21 14-9 14-21 14S3 24 3 24z"/><circle cx="24" cy="24" r="7"/><circle cx="24" cy="24" r="2" fill="currentColor"/><path d="M24 4v4m0 32v4"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M3 3h5l4.5 6L18 3h3l-7 8.5L21 21h-5l-4.5-6L6 21H3l7.2-8.7z" fill="currentColor"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><path d="M4 9h4v11H4zM6 3.5A2.2 2.2 0 1 1 6 8a2.2 2.2 0 0 1 0-4.5zM10 9h3.8v1.6c.6-1 1.9-1.9 3.9-1.9 4 0 4.3 2.700 4.300 5.600V20h-4v-5c0-1.300 0-2.800-1.800-2.800S14 13.600 14 15v5h-4z" fill="currentColor"/></symbol>
+    <symbol id="i-gh" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.200 19.500c.5.100.7-.2.7-.5v-1.800c-2.800.6-3.400-1.200-3.400-1.200-.5-1.200-1.100-1.500-1.100-1.500-.9-.6.100-.6.100-.6 1 .1 1.500 1 1.500 1 .9 1.500 2.300 1.100 2.900.8.1-.7.4-1.100.6-1.400-2.200-.3-4.600-1.100-4.600-5 0-1.100.4-2 1-2.700-.1-.3-.4-1.300.1-2.700 0 0 .8-.3 2.800 1a9.600 9.600 0 0 1 5 0c1.900-1.300 2.800-1 2.800-1 .5 1.400.2 2.400.1 2.700.6.7 1 1.600 1 2.700 0 3.900-2.400 4.700-4.600 5 .4.300.7.900.7 1.800V21c0 .3.200.6.700.5A10 10 0 0 0 12 2z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader__ring"><svg><use href="#logo"/></svg></div>
+  <p class="loader__text">Initializing neural link <span id="loadPct">0</span>%</p>
+  <div class="loader__bar"><i id="loadBar"></i></div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a href="#home" class="brand" aria-label="CYBORG home"><svg class="brand__logo"><use href="#logo"/></svg>CYBORG</a>
+  <nav aria-label="Primary">
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#home" class="is-active">Home</a></li>
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="#enhancements">Enhancements</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="nav__cta-m"><a href="#future" class="btn btn--solid">Explore the future</a></li>
+    </ul>
+    <span class="nav__ind" id="navInd" aria-hidden="true"></span>
+  </nav>
+  <a href="#future" class="btn btn--solid nav__cta">Explore the future</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+</header>
+
+<main id="main">
+<section class="hero" id="home">
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__copy">
+    <h1 class="hero__title" aria-label="The future is no longer human.">
+      <span class="line"><span>THE FUTURE IS</span></span>
+      <span class="line"><span class="grad">NO LONGER HUMAN.</span></span>
+    </h1>
+    <p class="hero__sub">Beyond biological limitations. Discover the next evolution of humanity through advanced cybernetic technology and artificial intelligence.</p>
+    <div class="hero__btns">
+      <a href="#technology" class="btn btn--solid">EXPLORE TECHNOLOGY</a>
+      <a href="#future" class="btn btn--ghost">DISCOVER THE FUTURE</a>
+    </div>
+    <ul class="status">
+      <li><i class="dot"></i>SYSTEM ONLINE</li>
+      <li>HUMAN EVOLUTION: <b id="evo">0.0</b>%</li>
+      <li><i class="dot dot--p"></i>AI CORE: ACTIVE</li>
+    </ul>
+  </div>
+
+  <div class="hero__visual" id="heroVisual">
+    <svg viewBox="0 0 400 520" class="cy" role="img" aria-label="Illustration of a human face merging with a robotic one">
+      <defs>
+        <linearGradient id="scanGlow" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#00f5ff" stop-opacity=".35"/><stop offset="1" stop-color="#00f5ff" stop-opacity="0"/></linearGradient>
+        <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a3646"/><stop offset="1" stop-color="#0c1119"/></linearGradient>
+        <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6edf5"/><stop offset=".45" stop-color="#7d8a9b"/><stop offset="1" stop-color="#1c2531"/></linearGradient>
+        <radialGradient id="eye"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#00f5ff"/><stop offset="1" stop-color="#00f5ff" stop-opacity="0"/></radialGradient>
+        <clipPath id="rightHalf"><rect x="200" y="0" width="200" height="520"/></clipPath>
+        <clipPath id="leftHalf"><rect x="0" y="0" width="200" height="520"/></clipPath>
+        <path id="head" d="M200 40C130 40 105 100 108 170c2 60 27 120 57 150v40h70v-40c30-30 55-90 57-150 3-70-22-130-92-130z"/>
+        <path id="body" d="M165 360c-60 20-120 40-140 160h350c-20-120-80-140-140-160z"/>
+      </defs>
+      <circle cx="200" cy="230" r="190" class="ring ring--a" fill="none"/>
+      <circle cx="200" cy="230" r="215" class="ring ring--b" fill="none"/>
+      <g clip-path="url(#leftHalf)"><use href="#body" fill="url(#skin)"/><use href="#head" fill="url(#skin)"/>
+        <path d="M130 150q18-10 38 0M150 245q22 14 50 8" stroke="#3b4a5e" stroke-width="2" fill="none"/></g>
+      <g clip-path="url(#rightHalf)"><use href="#body" fill="url(#metal)"/><use href="#head" fill="url(#metal)"/>
+        <g class="circuit" fill="none" stroke="#00f5ff" stroke-width="1.6">
+          <path d="M200 70h50l20 20v40M200 110h30l25 25M270 175v50l-20 20h-30M200 300h40l25-25M215 380v60M255 400v70l20 20M300 430l30 40"/>
+          <path d="M250 70v30M230 245h-30" stroke="#9d4edd"/></g>
+        <g fill="#00f5ff"><circle cx="270" cy="130" r="3"/><circle cx="255" cy="135" r="2.500"/><circle cx="265" cy="275" r="3"/><circle cx="330" cy="470" r="3"/></g>
+        <path d="M270 160h30v50h-30z" fill="#0b1018" stroke="#00f5ff" stroke-width="1" opacity=".85"/></g>
+      <path d="M200 40v480" stroke="#00f5ff" stroke-width="1.200" opacity=".7" stroke-dasharray="4 6"/>
+      <ellipse cx="160" cy="175" rx="16" ry="7" fill="#8aa0b8" opacity=".75"/><circle cx="160" cy="175" r="4" fill="#0c1119"/>
+      <circle cx="242" cy="175" r="30" fill="url(#eye)" class="eye"/><circle cx="242" cy="175" r="12" fill="none" stroke="#00f5ff" stroke-width="1.500"/><circle cx="242" cy="175" r="4" fill="#fff"/>
+      <path d="M200 205v35M185 250h30" stroke="#0c1119" stroke-opacity=".5" stroke-width="2" fill="none"/>
+      <g clip-path="url(#headClip)"><clipPath id="headClip"><use href="#head"/></clipPath><rect class="scanline" x="90" y="40" width="220" height="2" fill="#00f5ff"/><rect class="scanline scanline--t" x="90" y="40" width="220" height="40" fill="url(#scanGlow)"/></g>
+      <g class="reticle" stroke="#00f5ff" stroke-width="1.5" fill="none"><path d="M212 145h-8v8M272 145h8v8M212 205h-8v-8M272 205h8v-8"/></g>
+      <path d="M272 160l40-30h44" stroke="#00f5ff" stroke-width="1" fill="none" opacity=".8"/><text x="316" y="124" fill="#00f5ff" font-family="Chakra Petch" font-size="9" letter-spacing="2">OPTIC-01 LOCKED</text>
+      <path d="M160 200l-40 40h-40" stroke="#9d4edd" stroke-width="1" fill="none" opacity=".8"/><text x="30" y="256" fill="#9d4edd" font-family="Chakra Petch" font-size="9" letter-spacing="2">ORGANIC TISSUE</text>
+    </svg>
+    <div class="hud hud--a"><span>NEURAL LOAD</span><b id="hudA">72</b><i></i></div>
+    <div class="hud hud--b"><span>OPTIC SYNC</span><b>4K / 240Hz</b></div>
+    <div class="hud hud--c"><span>LATENCY</span><b>0.3 ms</b></div>
+  </div>
+  <a href="#about" class="scroll" aria-label="Scroll down"><i></i></a>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker__in">
+  <span>NEURAL LINK // 0.3 MS</span><span>SYNTHETIC VISION // 4K 240HZ</span><span>BIONIC TORQUE // 420 NM</span><span>AI CORE // LOCAL INFERENCE</span><span>UPLINK // STABLE</span><span>NEURAL LINK // 0.3 MS</span><span>SYNTHETIC VISION // 4K 240HZ</span><span>BIONIC TORQUE // 420 NM</span><span>AI CORE // LOCAL INFERENCE</span><span>UPLINK // STABLE</span>
+</div></div>
+<section class="intro reveal" id="about">
+  <div class="intro__media">
+    <svg viewBox="0 0 400 300" role="img" aria-label="Neural wave diagram">
+      <g fill="none" stroke="#00f5ff" stroke-width="1.200">
+        <path class="wave" d="M0 150c30-80 60-80 90 0s60 80 90 0 60-80 90 0 60 80 90 0 30-60 40-60"/>
+        <path class="wave w2" stroke="#9d4edd" d="M0 150c30 60 60 60 90 0s60-60 90 0 60 60 90 0 60-60 90 0 30 40 40 40"/>
+        <circle cx="200" cy="150" r="70" opacity=".4"/><circle cx="200" cy="150" r="105" opacity=".2" stroke-dasharray="3 7"/>
+      </g>
+      <text x="14" y="26" fill="#8a97a8" font-size="11" font-family="Chakra Petch">BIO-SIGNAL // SYNTHETIC OUTPUT</text>
+    </svg>
+  </div>
+  <div class="intro__txt">
+    <h2>EVOLUTION HAS BEGUN.</h2>
+    <p>Cybernetic engineering is rewriting what a human body and mind can do. Implants restore movement. Neural links turn thought into action. Machine vision sees what eyes never could.</p>
+    <p>We design these systems to work with the person wearing them, not around them.</p>
+    <dl class="stats">
+      <div><dt>Implants deployed</dt><dd data-count="48200">0</dd></div>
+      <div><dt>Signal accuracy</dt><dd data-count="99.4" data-dec="1">0</dd></div>
+      <div><dt>Research labs</dt><dd data-count="63">0</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="tech" id="technology">
+  <h2 class="reveal">ENGINEERED BEYOND LIMITS.</h2>
+  <div class="cards">
+    <article class="card reveal"><svg class="card__ic"><use href="#i-neural"/></svg><h3>NEURAL INTERFACE</h3><p>Connect human intelligence with advanced computing.</p></article>
+    <article class="card reveal"><svg class="card__ic"><use href="#i-bionic"/></svg><h3>BIONIC ENHANCEMENTS</h3><p>Next-generation artificial limbs and robotic systems.</p></article>
+    <article class="card reveal"><svg class="card__ic"><use href="#i-ai"/></svg><h3>AI INTEGRATION</h3><p>Intelligent systems designed to enhance human potential.</p></article>
+    <article class="card reveal"><svg class="card__ic"><use href="#i-vision"/></svg><h3>SYNTHETIC VISION</h3><p>Advanced visual technology and next-generation perception.</p></article>
+  </div>
+</section>
+
+<section class="versus" id="enhancements">
+  <h2 class="reveal">TWO WORLDS. ONE FUTURE.</h2>
+  <div class="versus__panel reveal">
+    <div class="versus__head"><span>BIOLOGICAL</span><span>CYBERNETIC</span></div>
+    <div class="versus__rows" id="vsRows"></div>
+    <label class="versus__ctl" for="vsRange">Integration level <b id="vsVal">0%</b>
+      <input type="range" id="vsRange" min="0" max="100" value="0">
+    </label>
+  </div>
+</section>
+
+<section class="show" id="showcase">
+  <h2 class="reveal">BEYOND IMAGINATION.</h2>
+  <div class="show__wrap reveal">
+    <div class="tabs" role="tablist" aria-label="Technology showcase" id="tabs"></div>
+    <div class="show__panel" role="tabpanel" id="panel" aria-live="polite">
+      <div class="show__txt"><h3 id="pTitle"></h3><p id="pText"></p><ul id="pSpecs"></ul></div>
+      <div class="show__vis" aria-hidden="true">
+        <svg viewBox="0 0 300 300"><g fill="none" stroke="#00f5ff"><circle class="r r1" cx="150" cy="150" r="120" stroke-dasharray="6 10"/><circle class="r r2" cx="150" cy="150" r="90" stroke="#9d4edd" stroke-dasharray="40 14"/><circle class="r r3" cx="150" cy="150" r="60" stroke-dasharray="2 8"/></g><text id="pGlyph" x="150" y="162" text-anchor="middle" fill="#fff" font-family="Chakra Petch" font-size="34" font-weight="700"></text></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="future" id="future">
+  <div class="future__floor" aria-hidden="true"></div><div class="future__beam" aria-hidden="true"></div><div class="future__sun" aria-hidden="true"></div>
+  <h2 class="reveal">TOMORROW IS BEING BUILT TODAY.</h2>
+  <p class="reveal">The next chapter of human evolution begins with innovation.</p>
+  <a href="#contact" class="btn btn--solid btn--lg reveal">ENTER THE NEW ERA</a>
+</section>
+</main>
+
+<footer class="foot" id="contact">
+  <div class="foot__top">
+    <div><a href="#home" class="brand"><svg class="brand__logo"><use href="#logo"/></svg>CYBORG</a>
+      <p>Building the bridge between human potential and machine precision.</p></div>
+    <nav aria-label="Footer"><ul>
+      <li><a href="#home">Home</a></li><li><a href="#technology">Technology</a></li><li><a href="#enhancements">Enhancements</a></li><li><a href="#about">About</a></li></ul></nav>
+    <div class="social">
+      <a href="#" aria-label="X"><svg><use href="#i-x"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+      <a href="#" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
+    </div>
+  </div>
+  <div class="foot__word" aria-hidden="true">CYBORG</div>
+  <div class="foot__bot"><span>© 2026 CYBORG Systems. All rights reserved.</span><span class="foot__deco">SYS.ID 0xC7B0-RG // UPLINK STABLE</span></div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
